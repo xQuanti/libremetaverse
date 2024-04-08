@@ -11,8 +11,23 @@ class Program
         string firstName = Environment.GetEnvironmentVariable("FIRST_NAME");
         string lastName = Environment.GetEnvironmentVariable("LAST_NAME");
         string password = Environment.GetEnvironmentVariable("PASSWORD");
+        string mac = Environment.GetEnvironmentVariable("MAC");
+        string id0 = Environment.GetEnvironmentVariable("ID0");
+        string channel = Environment.GetEnvironmentVariable("CHANNEL");
+        string version = Environment.GetEnvironmentVariable("VERSION");
 
-        LoginParams lParams = new LoginParams(client, firstName, lastName, password, "SimpleBot", "1.0");
+        LoginParams lParams = new LoginParams(client, firstName, lastName, password, channel, version);
+
+        if (mac != null)
+        {
+            lParams.MAC = mac;
+        }
+
+        if (id0 != null)
+        {
+            lParams.ID0 = id0;
+        }
+        
         client.Network.Login(lParams);
         client.Network.LoginProgress += new EventHandler<LoginProgressEventArgs>(Network_LoginProgress);
     }

@@ -11,6 +11,11 @@ COPY . .
 ENV FIRST_NAME=your_first_name
 ENV LAST_NAME=your_last_name
 ENV PASSWORD=your_password
+ENV MAC=your_mac_address
+ENV ID0=your_id0
+ENV CHANNEL=your_channel
+ENV VERSION=your_version
+
 
 # Build the app.
 WORKDIR /app/SimpleBot/
